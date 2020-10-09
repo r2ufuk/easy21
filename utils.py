@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Return:
     def __init__(self):
         self.sum = 0
@@ -14,3 +17,7 @@ class Return:
             return self.avg
         else:
             return .0
+
+
+def mean_squared_error(q_true, q_approx):
+    return(np.square(q_true - q_approx)).mean()
