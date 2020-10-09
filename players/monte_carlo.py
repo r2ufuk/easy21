@@ -3,7 +3,7 @@ from random import random
 import numpy as np
 
 from players import base
-from plot import plot
+from plot import plot_q
 from utils import Return
 
 
@@ -52,7 +52,7 @@ class Player(base.Player):
     def plot_value(self, plot_path=None):
         optimal_value = np.max(self.q, 2)
 
-        plot(optimal_value, plot_path)
+        plot_q(optimal_value, plot_path)
 
     def _evaluate(self, state, action, reward):
         idx = self._index(state, action)

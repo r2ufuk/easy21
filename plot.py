@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot(value, path=None):
+def plot_q(value, path=None):
     ax = plt.axes(projection='3d')
 
     dealer = np.arange(1, 11, 1)
