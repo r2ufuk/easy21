@@ -36,3 +36,9 @@ def plot_q(value, path=None):
         plt.savefig(path)
     else:
         plt.show()
+
+
+def plot_error(errors):
+    plt.clf()
+    plt.plot(errors)
+    plt.show()
