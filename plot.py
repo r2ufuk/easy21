@@ -1,9 +1,12 @@
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+
+from utils import roundup
 
 
 def plot_q(value, path=None):
+    plt.clf()
     ax = plt.axes(projection='3d')
 
     dealer = np.arange(1, 11, 1)
@@ -38,7 +41,43 @@ def plot_q(value, path=None):
         plt.show()
 
 
-def plot_error(errors):
+def plot_error_by_episode(errors_by_episode, path=None):
     plt.clf()
-    plt.plot(errors)
-    plt.show()
+
+    for lambada, err in enumerate(errors_by_episode):
+        plt.plot(err, label=f"λ={lambada}")
+
+    plt.xlabel("Episode", fontsize=14)
+    plt.ylabel("MSE", fontsize=14, rotation="horizontal", ha="right")
+
+    plt.legend()
+    plt.tight_layout()
+
+    if path:
+        plt.savefig(path)
+    else:
+        plt.show()
+
+
+def plot_error_by_lambda(errors, lambdas, checkpoints, path=None):
+    path_org = path
+    for i, episode_num in enumerate(checkpoints):
+        plt.clf()
+
+        episode_num = roundup(episode_num)
+
+        plt.plot(lambdas, errors[i], label=f"episode={roundup(episode_num)}")
+
+        plt.xlabel("λ", fontsize=16)
+        plt.ylabel("MSE", fontsize=14, rotation="horizontal", ha="right")
+
+        plt.xticks(lambdas)
+
+        plt.legend()
+        plt.tight_layout()
+
+        if path:
+            path = path_org.replace(".", f"[{episode_num:.0e}].")
+            plt.savefig(path)
+        else:
+            plt.show()
