@@ -7,9 +7,13 @@ My solution to David Silver's Easy21 sssignment. I wrote this completely from sc
 
 ### Progression of Q by Episode Number
 
-**1e4** | **1e5** | **1e6**
-:-:|:-:|:-:
-![Monte Carlo 1e4](plots/monte_carlo/Q(1e+04).png) | ![Monte Carlo 1e5](plots/monte_carlo/Q(1e+05).png) | ![Monte Carlo 1e6](plots/monte_carlo/Q(1e+06).png)
+**1e3** | **1e4**
+:-:|:-:
+![Monte Carlo 1e3](plots/monte_carlo/Q(1e+03).png) | ![Monte Carlo 1e4](plots/monte_carlo/Q(1e+04).png)
+
+**1e5** | **1e6**
+:-:|:-:
+![Monte Carlo 1e5](plots/monte_carlo/Q(1e+05).png) | ![Monte Carlo 1e6](plots/monte_carlo/Q(1e+06).png)
 
 ## Sarsa(λ) - Tabular
 
