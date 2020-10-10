@@ -46,6 +46,26 @@ class Player(base.Player):
         q = self.generate_q_table()
         return q
 
+    def generate_q_table(self):
+        # Very slow, maybe do it some other way?
+
+        q = np.zeros(self.state_size + (self.num_actions,))
+
+        for state, _ in np.ndenumerate(np.sum(q, axis=2)):
+            state_coarse = state[0] + 1, state[1] + 1
+            action_features = self._calc_action_features(state_coarse)  # State index vs coarse bin
+            action_values = self._calc_action_values(action_features)
+
+            for action in range(self.num_actions):
+                idx = self._index(state, action)
+
+                # States can only overlap once in this coarse coding
+                if q[idx] != 0:
+                    q[idx] += action_values[idx]
+                    q[idx] /= 2
+                else:
+                    q[idx] += action_values[action]
+        return q
 
     def _evaluate(self, state, action, reward, state_next, trace):
         active_features = self._activate_features(state, action)
