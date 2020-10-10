@@ -28,7 +28,7 @@ def monte_carlo(num_episodes, plot_root, q_npy_path=None, ):
 
     os.makedirs(plot_root, exist_ok=True)
 
-    player.plot_value(path=os.path.join(plot_root, f"Q[{num_episodes:.0e}].png"))
+    player.plot_value(path=os.path.join(plot_root, f"Q({num_episodes:.0e}).png"))
 
     return player.q
 

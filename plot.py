@@ -80,7 +80,7 @@ def plot_error_by_lambda(errors, lambdas, checkpoints, path=None):
         plt.tight_layout()
 
         if path:
-            path = path_org.replace(".", f"[{episode_num:.0e}].")
+            path = path_org.replace(".", f"({episode_num:.0e}).")
             plt.savefig(path)
         else:
             plt.show()
