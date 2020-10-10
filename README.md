@@ -7,13 +7,13 @@ My solution to David Silver's Easy21 sssignment. I wrote this completely from sc
 
 ### Progression of Q by Episode Number
 
-* ####1E4
+* **1E4**  
 ![Monte Carlo 1e4](plots/monte_carlo/Q(1e+04).png)
 
-* ####1E5
+* **1E5**  
 ![Monte Carlo 1e5](plots/monte_carlo/Q(1e+05).png)
 
-* ####1E6
+* **1E6**  
 ![Monte Carlo 1e6](plots/monte_carlo/Q(1e+06).png)
 
 ## Sarsa(λ) - Tabular
@@ -24,10 +24,10 @@ My solution to David Silver's Easy21 sssignment. I wrote this completely from sc
 
 ## MSE by λ
 
-* ###1E3
+* **1E3**  
 ![MSE 1e3](plots/sarsa/tabular/mse(1e+03).png)
 
-* ###2E4
+* **2E4**  
 ![MSE 2e4](plots/sarsa/tabular/mse(2e+04).png)
 
 ## Sarsa(λ) - Approximate
@@ -38,8 +38,8 @@ My solution to David Silver's Easy21 sssignment. I wrote this completely from sc
 
 ## MSE by λ
 
-* ###1E3
+* **1E3**  
 ![MSE 1e3](plots/sarsa/approx/mse(1e+03).png)
 
-* ###2E4
+* **2E4**  
 ![MSE 2e4](plots/sarsa/approx/mse(2e+04).png)
