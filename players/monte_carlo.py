@@ -12,8 +12,8 @@ class Player(base.Player):
         super().__init__(table_setter)
         self.n_0 = n_0
 
-        self.pi = self._generate_arbitrary_policy()
-        self.q = self._generate_arbitrary_state_action_pairs()
+        self.pi = self._init_policy()
+        self.q = self._init_state_action_values()
         self.g = self._init_returns()
         self.visits = np.zeros(self.q.shape, dtype=np.int)
 
@@ -49,10 +49,13 @@ class Player(base.Player):
 
         return state_p, state_d
 
-    def plot_value(self, plot_path=None):
+    def plot_value(self, path=None):
         optimal_value = np.max(self.q, 2)
 
-        plot_q(optimal_value, plot_path)
+        plot_q(optimal_value, path)
+
+    def get_q(self):
+        return self.q
 
     def _evaluate(self, state, action, reward):
         idx = self._index(state, action)
@@ -71,14 +74,14 @@ class Player(base.Player):
     def _exploit(self, state):
         return self.pi[state]
 
-    def _generate_arbitrary_policy(self):
+    def _init_policy(self):
         policy = np.zeros(self.state_size, dtype=np.int)
         for i, _ in np.ndenumerate(policy):
             policy[i] = np.random.choice(self.num_actions)
 
         return policy
 
-    def _generate_arbitrary_state_action_pairs(self):
+    def _init_state_action_values(self):
         return np.zeros(self.state_size + (self.num_actions,))
 
     def _init_returns(self):
@@ -96,7 +99,3 @@ class Player(base.Player):
         n_s = np.sum(self.visits[state]) + 1  # Account for current state
 
         return self.n_0 / (self.n_0 + n_s)
-
-    @staticmethod
-    def _index(state, action):
-        return state + (action,)

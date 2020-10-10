@@ -34,6 +34,7 @@ class Player:
                 print(game.to_string(index=False))
             print(reward.name, "\n")
 
+
     def _run_episode(self, table):
         actions = []
         states = []
@@ -71,3 +72,7 @@ class Player:
     @staticmethod
     def _determinate(reward):
         return reward is not None
+
+    @staticmethod
+    def _index(state, action):
+        return state + (action,)
