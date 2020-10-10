@@ -1,3 +1,5 @@
+import math
+
 import numpy as np
 
 
@@ -20,4 +22,8 @@ class Return:
 
 
 def mean_squared_error(q_true, q_approx):
-    return(np.square(q_true - q_approx)).mean()
+    return (np.square(q_true - q_approx)).mean()
+
+
+def roundup(x):
+    return int(math.ceil(x / 10.0)) * 10
