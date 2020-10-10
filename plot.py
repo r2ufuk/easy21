@@ -12,6 +12,9 @@ def plot_q(value, path=None):
     dealer = np.arange(1, 11, 1)
     player = np.arange(1, 22, 1)
 
+    plt.xlabel("Dealer Showing", fontsize=10)
+    plt.ylabel("Player Total", fontsize=10)
+
     plt.xticks(np.arange(1, 11, step=9))
     plt.yticks(np.arange(1, 22, step=20))
     ax.set_zticks([-1, 1])
