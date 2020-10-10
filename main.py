@@ -5,8 +5,8 @@ import numpy as np
 from tqdm import tqdm
 
 from players.monte_carlo import Player as MonteCarloPlayer
-from players.sarsa_tabular import Player as SarsaTabularPlayer
 from players.sarsa_approx import Player as SarsaApproxPlayer
+from players.sarsa_tabular import Player as SarsaTabularPlayer
 from plot import plot_error_by_lambda, plot_error_by_episode
 from table import Table
 from utils import mean_squared_error
@@ -85,8 +85,8 @@ if __name__ == '__main__':
     print("-*- Monte Carlo -*-")
     q = monte_carlo(num_episodes_true, plot_root_monte_carlo, monte_carlo_q_path)
 
-    # print("-*- Sarsa Tabular-*-")
-    # sarsa_driver(SarsaTabularPlayer, num_episodes_bootstrap, tabular_lambdas, q, plot_root_sarsa_tabular)
+    print("-*- Sarsa Tabular-*-")
+    sarsa_driver(SarsaTabularPlayer, num_episodes_bootstrap, tabular_lambdas, q, plot_root_sarsa_tabular)
 
     print("-*- Sarsa Approx-*-")
     sarsa_driver(SarsaApproxPlayer, num_episodes_bootstrap, tabular_lambdas, q, plot_root_sarsa_approx)
